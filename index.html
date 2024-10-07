@@ -1,13 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paddy Website Design</title>
+    <title>Peddy Website Design</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f78fcc4cf7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <nav class="w-10/12 mx-auto">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  
+                </div>
+              </div>
+              <div class="flex">
+                <img src="./images/logo.webp" alt="">
+                <a class="btn btn-ghost text-xl">Peddy</a>
+              </div>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end">
+                <i class="fa-regular fa-user"></i>
+            </div>
+          </div>
+    </nav>
+    <section class="w-7/12 mx-auto ">
+        <div class=" flex flex-col md:flex-col items-center justify-center">
+          <h3 class=" text-5xl pt-6 px-12 font-bold lg:w-10/12 text-center ">Your Path to Adoption Starts Here</h3>
+          <p class="px-20 py-5 lg:w-9/12 text-center">The barn house captivates with its blend of rustic charm and modern sophistication, featuring weathered wood, sleek metal accents, and large windows that flood the space with natural light.</p>
+          <a class="btn bg-button-color rounded-md bg-[#0E7A81]">View More
+          </a>
+        </div>
+        <div class="flex items-center justify-center">
+            <img src="./images/pet.webp" alt="">
+        </div>
+    </section>
+    <main class="w-10/12 mx-auto" >
+        <section>
+            <div class=" flex flex-col md:flex-col items-center justify-center">
+                <h4 class="text-3xl pt-6 px-12 font-bold lg:w-10/12 text-center">Adopt  Your  Best Friend</h4>
+                <p class="px-20 py-5 lg:w-9/12 text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+        </section>
+        <section>
+          <div id="categories" class="py-3 flex gap-5 justify-center">
+            
+          </div>
+        </section>
+        <section id="pets" class=" lg:w-9/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10 ">
+
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/index.js"></script>
 </body>
 </html>
