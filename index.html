@@ -17,16 +17,16 @@
                   
                 </div>
               </div>
-              <div class="flex">
-                <img src="./images/logo.webp" alt="">
+              <div class="flex items-center">
+                <img src="./images/logo.webp" class="h-full w-full" alt="">
                 <a class="btn btn-ghost text-xl">Peddy</a>
               </div>
             </div>
             <div class="navbar-center hidden lg:flex">
               <ul class="menu menu-horizontal px-1">
-                <li><a>Home</a></li>
-                <li><a>Shop</a></li>
-                <li><a>Contact</a></li>
+                <li class="text-lg"><a>Home</a></li>
+                <li class="text-lg"><a>Shop</a></li>
+                <li class="text-lg"><a>Contact</a></li>
               </ul>
             </div>
             <div class="navbar-end">
@@ -35,10 +35,14 @@
           </div>
     </nav>
     <section class="w-7/12 mx-auto ">
+        <div class="text-center text-xl text-[#13131399]">
+            <p>Bringing Families Together ❤️‍🔥 
+            </p>
+        </div>
         <div class=" flex flex-col md:flex-col items-center justify-center">
           <h3 class=" text-5xl pt-6 px-12 font-bold lg:w-10/12 text-center ">Your Path to Adoption Starts Here</h3>
-          <p class="px-20 py-5 lg:w-9/12 text-center">The barn house captivates with its blend of rustic charm and modern sophistication, featuring weathered wood, sleek metal accents, and large windows that flood the space with natural light.</p>
-          <a class="btn bg-button-color rounded-md bg-[#0E7A81]">View More
+          <p class="px-20 py-5 lg:w-9/12 text-center">Explore and adopt your perfect pet from a variety of categories with our easy-to-use pet adoption platform.</p>
+          <a class="btn bg-button-color rounded-md bg-[#0E7A81] text-white">View More
           </a>
         </div>
         <div class="flex items-center justify-center">
@@ -49,7 +53,7 @@
         <section>
             <div class=" flex flex-col md:flex-col items-center justify-center">
                 <h4 class="text-3xl pt-6 px-12 font-bold lg:w-10/12 text-center">Adopt  Your  Best Friend</h4>
-                <p class="px-20 py-5 lg:w-9/12 text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <p class="px-20 py-5 lg:w-9/12 text-center">Find your new best friend and give them a forever home with our seamless pet adoption process, tailored to help you discover the perfect companion.</p>
             </div>
         </section>
         <section>
@@ -57,12 +61,75 @@
             
           </div>
         </section>
-        <section id="pets" class=" lg:w-9/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10 ">
+        <section class="flex justify-between my-5">
+         <div class="text-xl font-bold">
+          <p>Best deal for You</p>
+         </div>
+         <div >
+          <button class="btn bg-[#0E7A81] text-white">Sort by price</button>
+         </div>
+        </section>
+        <!-- pets section -->
+        <section class=" flex flex-row gap-3" >
+            <div id="pets" class="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 border-2 ">
+
+            </div>
+            <div id="pet-thumbs" class="lg:w-[30%] grid grid-cols-1 md:grid-cols-2 border-2">
+                <p>Akib</p>
+            </div>
 
         </section>
-    </main>
-    <footer>
+        <!-- modal -->
+        <button id="show-modal" class="btn hidden" onclick="my_modal_5.showModal()">open modal</button>
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <div id="modal-content">
 
+            </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <button id="close-modal" class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+    </main>
+    <footer class="  bg-black mt-5 ">
+      <div class=" w-10/12 mx-auto footer text-base-content text-white p-10">
+        <nav>
+          <h6 class="footer-title"><div class="flex items-center">
+            <img src="./images/logo.webp" class="h-full w-full" alt="">
+            <a class="btn btn-ghost text-xl">Peddy</a>
+          </div></h6>
+          <a >Location: av. Washington 165, NYCA</a>
+          <a >54003</a>
+          <a >Phone: +31 85 964 47 25</a>
+          <a >Email: info@yourdomain.com</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Useful Links</h6>
+          <a class="link link-hover">Home</a>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Contact</a>
+          <a class="link link-hover">Animals</a>
+          <a class="link link-hover">Foundation</a>
+        </nav>
+        <form>
+          <h6 class="footer-title">Drop a Message</h6>
+          <fieldset class="form-control w-80">
+            <label class="label">
+              <span class="label-text">Enter your email address</span>
+            </label>
+            <div class="join">
+              <input
+                type="text"
+                placeholder="Enter your email"
+                class="input input-bordered join-item" />
+              <button class="btn btn-primary join-item">Subscribe</button>
+            </div>
+          </fieldset>
+      </div>
+      </form>
     </footer>
     <script src="./js/index.js"></script>
 </body>
