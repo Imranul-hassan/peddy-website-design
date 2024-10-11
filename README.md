@@ -7,7 +7,7 @@
 ---
 
 ### **Key Features**
-1. **Browse Pet Categories**: Users can explore different pet categories, filtering by breed, size, and other characteristics.
+1. **Browse Pet Categories**: Users can explore different pet categories, such as dogs, rabbits, cats, and birds.
 2. **Detailed Pet Profiles**: Every pet has a dedicated profile page with detailed information, including age, breed, and adoption requirements.
 3. **Adoption Process Modal**: A responsive modal window to guide users through the adoption process with feedback and instructions.
 4. **Sort by Price**: Users can easily sort pets based on adoption fees, helping them find pets within their budget.
@@ -20,7 +20,7 @@
 - **Template Literals**: Employed for easy HTML content insertion and dynamic content creation.
 - **Async/Await**: Simplified the handling of asynchronous API requests for fetching pet data.
 - **Destructuring Assignment**: For extracting data from objects in a clean and efficient manner.
-- **Modules (if applicable)**: Utilized ES6 modules for organizing code and improving maintainability.
+- **Promises**: Utilized for handling asynchronous operations, allowing for cleaner and more manageable code.
 
 ---
 ### **Live Link**
