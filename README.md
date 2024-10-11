@@ -24,4 +24,4 @@
 
 ---
 ### **Live Link**
-[Live Demo of Peddy]('https://peddy-website-design.netlify.app/')  
+[Live Demo of Peddy](https://peddy-website-design.netlify.app/)  
