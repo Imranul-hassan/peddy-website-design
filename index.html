@@ -42,7 +42,7 @@
         <div class=" flex flex-col md:flex-col items-center justify-center">
           <h3 class=" text-5xl pt-6 px-12 font-bold lg:w-10/12 text-center ">Your Path to Adoption Starts Here</h3>
           <p class="px-20 py-5 lg:w-9/12 text-center">Explore and adopt your perfect pet from a variety of categories with our easy-to-use pet adoption platform.</p>
-          <a class="btn bg-button-color rounded-md bg-[#0E7A81] text-white">View More
+          <a class="btn bg-button-color rounded-md bg-[#0E7A81] text-white" href="#adopt">View More
           </a>
         </div>
         <div class="flex items-center justify-center">
@@ -50,36 +50,47 @@
         </div>
     </section>
     <main class="w-10/12 mx-auto" >
-        <section>
+
+        <section id="adopt">
             <div class=" flex flex-col md:flex-col items-center justify-center">
                 <h4 class="text-3xl pt-6 px-12 font-bold lg:w-10/12 text-center">Adopt  Your  Best Friend</h4>
                 <p class="px-20 py-5 lg:w-9/12 text-center">Find your new best friend and give them a forever home with our seamless pet adoption process, tailored to help you discover the perfect companion.</p>
             </div>
         </section>
+
+        <!-- categories section  -->
         <section>
           <div id="categories" class="py-3 flex gap-5 justify-center">
             
           </div>
         </section>
+
+          <!-- spinner  -->
+          <div id="spinner" class=" flex items-center justify-center w-full h-full mx-auto hidden">
+            <span class=" loading loading-spinner loading-md "></span>
+          </div>
+
+         <!-- best deal section  -->
         <section class="flex justify-between my-5">
          <div class="text-xl font-bold">
           <p>Best deal for You</p>
          </div>
          <div >
-          <button class="btn bg-[#0E7A81] text-white">Sort by price</button>
+          <button onclick="shortPrice()" id="sort-by-price-button" class="btn bg-[#0E7A81] text-white">Sort by price</button>
          </div>
         </section>
+
         <!-- pets section -->
         <section class=" flex flex-row gap-3" >
             <div id="pets" class="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 border-2 ">
 
             </div>
-            <div id="pet-thumbs" class="lg:w-[30%] grid grid-cols-1 md:grid-cols-2 border-2">
-                <p>Akib</p>
+            <div id="pet-thumbs" class="lg:w-[30%] grid grid-cols-1 md:grid-cols-2 border-2 content-start">
+            
             </div>
 
         </section>
-        <!-- modal -->
+        <!-- modal details -->
         <button id="show-modal" class="btn hidden" onclick="my_modal_5.showModal()">open modal</button>
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
           <div class="modal-box">
@@ -89,6 +100,21 @@
             <div class="modal-action">
               <form method="dialog">
                 <button id="close-modal" class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- modal adopt -->
+        <button id="show-modal-adopt" class="btn hidden" onclick="my_modal_1.showModal()">open modal</button>
+        <dialog id="my_modal_1" class="modal">
+          <div class="modal-box">
+            <div id="adopt-modal">
+
+            </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn">Close</button>
               </form>
             </div>
           </div>
@@ -105,6 +131,12 @@
           <a >54003</a>
           <a >Phone: +31 85 964 47 25</a>
           <a >Email: info@yourdomain.com</a>
+          <div class="flex gap-3">
+              <p><i class="fa-brands fa-facebook"></i></p>
+              <p><i class="fa-brands fa-x-twitter"></i></p>
+              <p><i class="fa-brands fa-youtube"></i></p>
+              <p><i class="fa-brands fa-instagram"></i></p>
+          </div>
         </nav>
         <nav>
           <h6 class="footer-title">Useful Links</h6>

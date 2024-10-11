@@ -1,12 +1,26 @@
 
 // load spinner
-const handleSpinner = ()=>{
-    document.getElementById("spinner").style.display ="block"
+const loadSpinner=()=>{
+    document.getElementById("spinner").style.display="none";
+   
 
-    setTimeout(function() {
-        displayPets()
-    },3000)
 }
+
+//create load pets for sort button
+const loadPetsPrice = () =>{
+    fetch ("https://openapi.programming-hero.com/api/peddy/pets")
+    .then((res) => res.json())
+    .then((data) => shortPrice(data.pets))
+    .catch((error) => console.log(error));
+};
+
+//shorting price
+const shortPrice=(pets)=>{
+    const sortedPets = pets.sort((a, b) => b.price - a.price);
+    displayPets(sortedPets);
+}
+document.getElementById("sort-by-price-button").addEventListener("click", loadPetsPrice);
+
 
 //create load categories
 const loadCategories = () =>{
@@ -25,9 +39,16 @@ const loadPets = () =>{
 };
 
 const loadCategoryPets = (category) =>{
+    document.getElementById("spinner").style.display ="block";
+ 
     fetch (`https://openapi.programming-hero.com/api/peddy/category/${category}`)
     .then((res) => res.json())
-    .then((data) => displayPets(data.data))
+    .then((data) => {
+        setTimeout(function() {
+            loadSpinner()
+            displayPets(data.data)
+        },3000)
+        })
     .catch((error) => console.log(error));
 
 };
@@ -39,7 +60,7 @@ const loadDetails =async (petId) =>{
    displayDetails(data.petData)
 }
 
-// adopt
+// adopt modal
 const loadAdopt = async(petId)=>{
    const uri =`https://openapi.programming-hero.com/api/peddy/pet/${petId}`
    const res = await fetch(uri);
@@ -49,27 +70,31 @@ const loadAdopt = async(petId)=>{
 }
 
 const displayAdopt = (petData) =>{
-    const displayAdoptContainer = document.getElementById("modal-content")
-    document.getElementById("show-modal").click();
+    const displayAdoptContainer = document.getElementById("adopt-modal")
+    const modal = document.getElementById("my_modal_1");
+    document.getElementById("show-modal-adopt").click();
     let countdown = 3;
     displayAdoptContainer.innerHTML =`
         <div class="flex flex-col items-center justify-center">
-            <p class="text-3xl font-bold"> Congrasulations </p>
+            <p class="text-3xl font-bold"> Congratulations!</p>
             <p class="text-xl "> Adoption process is start for your pet </p>
-             <p> <span id="countdown">${countdown}
+             <p> <span id="countdown">${countdown} </span></p>
         </div>
     `
     const intervalId = setInterval(() => {
         countdown--;
         document.getElementById("countdown").textContent = countdown;
+
+        if (countdown === 0) {
+            clearInterval(intervalId); 
+        }
     }, 1000);
 
     setTimeout(() => {
-        clearInterval(intervalId); 
-        document.getElementById("show-modal"); 
+        modal.close();  
     }, 3000);
-
 }
+
 // thumbs load
 const loadThumbs = async (petId) =>{
     const uri =`https://openapi.programming-hero.com/api/peddy/pet/${petId}`
@@ -82,10 +107,12 @@ const displayThumbsImage = (petData)=>{
     console.log(petData)
     const thumbsContainer = document.getElementById("pet-thumbs")
     
-
-    thumbsContainer.innerHTML =`
-        <img src="${petData.image}" class="w-full py-3"/> 
+    const thumbs = document.createElement("div");
+    thumbs.innerHTML =`
+        <img src="${petData.image}" class="w-full p-3"/>
+       
     `
+    thumbsContainer.append(thumbs)
 }
 
 const displayDetails = (petData) =>{
@@ -98,12 +125,12 @@ const displayDetails = (petData) =>{
         <h2 class="card-title">
         ${petData.pet_name}
         </h2>
-        <p> Breed: ${petData.breed}</p>
-        <p> Birth: ${petData.date_of_birth}</p>
-        <p> Gender: ${petData.gender}</p>
-        <p> Price: ${petData.price}</p>
+        <p> Breed: ${petData.breed || "N/A"}</p>
+        <p> Birth: ${petData.date_of_birth || "N/A"}</p>
+        <p> Gender: ${petData.gender || "N/A"}</p>
+        <p> Price: ${petData.price || "N/A"}</p>
          <hr>
-         <p class="py-3">Details Description </br> </br> ${petData.pet_details}</p>
+         <p class="py-3 "> <span class="font-bold">Details Description </span> </br> </br> ${petData.pet_details}</p>
          
     `
 };
@@ -130,6 +157,8 @@ const displayPets =(pets) =>{
 
     pets.forEach(pet => {
     console.log(pet)
+
+
     const card = document.createElement("div");
     card.classList ="card border-2";
     card.innerHTML =`
@@ -143,15 +172,15 @@ const displayPets =(pets) =>{
         <h2 class="card-title">
         ${pet.pet_name}
         </h2>
-        <p> Breed: ${pet.breed}</p>
-        <p> Birth: ${pet.date_of_birth}</p>
-        <p> Gender: ${pet.gender}</p>
-        <p> Price: ${pet.price}</p>
+        <p>  Breed: ${pet.breed || "N/A"}</p>
+        <p> <i class="fa-solid fa-cake-candles"></i> Birth: ${pet.date_of_birth || "N/A"}</p>
+        <p> <i class="fa-solid fa-mercury"></i> Gender: ${pet.gender || "N/A"}</p>
+        <p> <i class="fa-solid fa-dollar-sign"></i> Price: ${pet.price || "N/A"}</p>
          <hr>
-        <div class=" lg:flex gap-4 py-2">
+        <div class=" lg:flex gap-2 py-2">
          <button onclick="loadThumbs(${pet.petId})" class="btn bg-white  border-teal-100 "> <i class="fa-regular fa-thumbs-up"></i></button>
-         <button onclick="loadAdopt(${pet.petId})" class="btn text-[#0E7A81] text-lg bg-white  p-2 border-teal-100"> Adopt</button>
-         <button onclick="loadDetails(${pet.petId})" class="btn text-[#0E7A81] text-lg bg-white p-2 border-teal-100"> Details </button>
+         <button onclick="loadAdopt(${pet.petId})" class="btn text-[#0E7A81] text-base bg-white  p-2 border-teal-100"> Adopt</button>
+         <button onclick="loadDetails(${pet.petId})" class="btn text-[#0E7A81] text-base bg-white p-2 border-teal-100"> Details </button>
          
         </div>
         
@@ -186,3 +215,5 @@ const displayCategories =(categories) =>{
 
 loadCategories();
 loadPets();
+
+
